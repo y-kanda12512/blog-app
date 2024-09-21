@@ -4,7 +4,32 @@ class ArticlesController < ApplicationController
         @articles = Article.all
     end
 
+    # 個別の記事
     def show
        @article = Article.find(params[:id])
+    end
+
+    # 記事を作成
+    def new
+        @article = Article.new
+    end
+
+    def create
+        @article = Article.new(article_params)
+
+        if @article.save
+            redirect_to article_path(@article),notice: '保存できました'
+        else
+            flash.now[:error] = '保存できませんでした'
+            render :new
+        end
+    end
+
+    private
+    def article_params
+        puts '-----------'
+        puts params
+        puts '-----------'
+        params.require(:article).permit(:title,:content)
     end
 end
