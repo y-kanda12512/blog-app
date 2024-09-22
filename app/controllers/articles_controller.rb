@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+
+    before_action :set_article,only:[:show,:edit,:update]
+
     # 全ての記事を表示する（railsの決まり）
     def index
         @articles = Article.all
@@ -6,7 +9,6 @@ class ArticlesController < ApplicationController
 
     # 個別の記事
     def show
-       @article = Article.find(params[:id])
     end
 
     # 記事を作成
@@ -26,12 +28,9 @@ class ArticlesController < ApplicationController
     end
 
     def edit
-       @article = Article.find(params[:id])
     end
 
     def update
-        @article = Article.find(params[:id])
-
         if @article.update(article_params)
             redirect_to article_path(@article),notice: '更新できました'
         else
@@ -52,5 +51,10 @@ class ArticlesController < ApplicationController
         puts params
         puts '-----------'
         params.require(:article).permit(:title,:content)
+    end
+
+    # メソッドが実行される前に実行するメソッド
+    def set_article
+        @article = Article.find(params[:id])
     end
 end
