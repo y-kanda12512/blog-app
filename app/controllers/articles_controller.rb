@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-    before_action :set_article,only:[:show,:edit,:update]
+    before_action :set_article,only:[:show]
     before_action :authenticate_user!,only:[:new,:create,:edit,:update,:destroy]
 
     # 全ての記事を表示する（railsの決まり）
@@ -14,11 +14,12 @@ class ArticlesController < ApplicationController
 
     # 記事を作成
     def new
-        @article = Article.new
+        # ユーザーに紐付いた空のarticleモデルを渡す
+        @article = current_user.articles.build
     end
 
     def create
-        @article = Article.new(article_params)
+        @article = current_user.articles.build(article_params)
 
         if @article.save
             redirect_to article_path(@article),notice: '保存できました'
@@ -29,9 +30,12 @@ class ArticlesController < ApplicationController
     end
 
     def edit
+        # IDを指定してしまえば他のユーザーの記事も編集できてしまうのでcurrent_userは必須
+        @article = current_user.articles.find(params[:id])
     end
 
     def update
+        @article = current_user.articles.find(params[:id])
         if @article.update(article_params)
             redirect_to article_path(@article),notice: '更新できました'
         else
@@ -41,7 +45,7 @@ class ArticlesController < ApplicationController
     end
 
     def destroy
-        article = Article.find(params[:id])
+        article = current_user.articles.find(params[:id])
         article.destroy!
         redirect_to root_path,notice:'削除に成功しました'
     end
