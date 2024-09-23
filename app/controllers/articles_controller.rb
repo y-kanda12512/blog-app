@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
 
     # 全ての記事を表示する（railsの決まり）
     def index
-        @articles = Article.All
+        @articles = Article.all
     end
 
     # 個別の記事
