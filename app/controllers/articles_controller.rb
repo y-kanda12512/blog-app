@@ -10,6 +10,7 @@ class ArticlesController < ApplicationController
 
     # 個別の記事
     def show
+        @comments = @article.comments
     end
 
     # 記事を作成
