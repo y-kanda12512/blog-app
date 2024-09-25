@@ -23,6 +23,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :articles, dependent: :destroy
+  has_one :profile, dependent: :destroy
+
+  delegate :birthday, :age, :gender, to: :profile, allow_nil: true
 
   # ログインしているユーザーが書いた記事であるかを判断する
   def has_written?(article)
@@ -30,6 +33,25 @@ class User < ApplicationRecord
   end
 
   def display_name
-    self.email.split('@').first
+    # if profile && profile.nickname
+    #   profile.nickname
+    # else
+    #  self.email.split('@').first
+    # end
+
+    # 「〇〇&」←丸部分がNullでなければ呼び出す
+    profile&.nickname || self.email.split('@').first
+  end
+
+  def prepare_profile
+    profile || build_profile
+  end
+
+  def avatar_image
+    if profile&.avatar&.attached?
+      profile.avatar
+    else
+      'default-avatar.png'
+    end
   end
 end
