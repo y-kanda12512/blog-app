@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   # resources :articles,only:[:index, :show, :new, :create, :edit, :update, :destroy]
   resources :articles do
     resources :comments,only: [:new, :create]
+
+    resource :like, only: [:create, :destroy]
   end
 
   resource :profile, only: [:show, :edit, :update]
+
+  resources :favorites,only: [:index]
 end

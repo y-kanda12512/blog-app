@@ -53,10 +53,7 @@ class ArticlesController < ApplicationController
 
     private
     def article_params
-        puts '-----------'
-        puts params
-        puts '-----------'
-        params.require(:article).permit(:title,:content)
+        params.require(:article).permit(:title,:content,:eyecatch)
     end
 
     # メソッドが実行される前に実行するメソッド
