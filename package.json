@@ -23,7 +23,4 @@
     "start": "rails s",
     "test": "rails test"
   },
-  "engines": {
-    "node": "14.15.0"
-  }
 }
