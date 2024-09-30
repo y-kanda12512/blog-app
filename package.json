@@ -24,7 +24,6 @@
     "test": "rails test"
   },
   "engines": {
-    "node": "16.20.1",
-    "yarn": "1.22.x"
+    "node": "16.20.1"
   }
 }
