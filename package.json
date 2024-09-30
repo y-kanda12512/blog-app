@@ -22,5 +22,9 @@
     "build": "webpack",
     "start": "rails s",
     "test": "rails test"
+  },
+  "engines": {
+    "node": "20.x",
+    "yarn": "1.22.x"
   }
 }
