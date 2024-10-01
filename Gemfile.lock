@@ -334,6 +334,7 @@ DEPENDENCIES
   pry-byebug
   puma (~> 4.1)
   rails (~> 6.0.2, >= 6.0.2.1)
+  railties (~> 6.0)
   rubocop-rails
   rubygems-update (>= 3.3.22)
   sass-rails (>= 6)
