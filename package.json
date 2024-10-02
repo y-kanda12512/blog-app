@@ -18,6 +18,7 @@
     "@babel/plugin-transform-modules-commonjs": "^7.24.8",
     "@babel/preset-env": "^7.25.4",
     "babel-loader": "^8.4.1",
+    "node-gyp": "^10.2.0",
     "sass": "^1.79.4",
     "source-list-map": "^2.0.1",
     "webpack": "^4.46.0",
@@ -30,5 +31,8 @@
     "start": "rails s",
     "test": "rails test",
     "heroku-postbuild": "bundle install && RAILS_ENV=production bundle exec rails webpacker:compile"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }
