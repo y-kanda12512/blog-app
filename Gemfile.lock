@@ -322,6 +322,7 @@ DEPENDENCIES
   aws-sdk-s3
   bootsnap (>= 1.4.2)
   builder
+  bundler (= 2.4.22)
   byebug
   capybara (>= 2.15)
   devise
