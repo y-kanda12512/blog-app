@@ -31,11 +31,7 @@ gem 'faker'
 gem 'hamlit'
 gem 'devise'
 gem 'aws-sdk-s3', require: false
-
-
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
-
+gem 'image_processing', '~> 1.2'
 gem 'net-protocol', '~> 0.2.2'
 
 # Reduces boot times through caching; required in config/boot.rb
@@ -69,3 +65,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "actiontext", "~> 6.0"
