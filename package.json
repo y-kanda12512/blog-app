@@ -31,8 +31,5 @@
     "start": "rails s",
     "test": "rails test",
     "heroku-postbuild": "RAILS_ENV=production bundle exec rails webpacker:compile"
-  },
-  "engines": {
-    "node": "16.x"
   }
 }
