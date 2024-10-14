@@ -1,3 +1,5 @@
+import "trix";
+import "@rails/actiontext";
 // This file is automatically compiled by Webpack, along with any other files
 
 // present in this directory. You're encouraged to place your actual application logic in
@@ -18,3 +20,6 @@ require("channels");
 
 // app/javascript/packs/application.js
 console.log("Webpacker is working!");
+
+require("trix");
+require("@rails/actiontext");
