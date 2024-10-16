@@ -25,6 +25,15 @@ class User < ApplicationRecord
   has_many :articles, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :favorite_articles,through: :likes,source: :article
+
+  # フォローしているデータを定義
+  has_many :following_relationships, foreign_key: 'follower_id',class_name: 'Relationship',dependent: :destroy
+  has_many :followings, through: :following_relationships,source: :following
+
+  # フォローされているデータを定義
+  has_many :follower_relationships,foreign_key: 'following_id',class_name: 'Relationship',dependent: :destroy
+  has_many :followers,through: :follower_relationships, source: :follower
+
   has_one :profile, dependent: :destroy
 
   delegate :birthday, :age, :gender, to: :profile, allow_nil: true
@@ -38,26 +47,35 @@ class User < ApplicationRecord
     likes.exists?(article_id: article.id)
   end
 
-  def display_name
-    # if profile && profile.nickname
-    #   profile.nickname
-    # else
-    #  self.email.split('@').first
-    # end
+  def follow!(user)
+    user_id = get_user_id(user)
 
-    # 「〇〇&」←丸部分がNullでなければ呼び出す
-    profile&.nickname || self.email.split('@').first
+    following_relationships.create!(following_id: user_id)
+  end
+
+  def unfollow!(user)
+    user_id = get_user_id(user)
+
+    relation = following_relationships.find_by!(following_id: user_id)
+    relation.destroy!
+  end
+
+  # 自分がフォローしているユーザー達の中に、following_id（引数で与えたIDが存在しているかどうか）
+  def has_followed?(user)
+    following_relationships.exists?(following_id: user.id)
   end
 
   def prepare_profile
     profile || build_profile
   end
 
-  def avatar_image
-    if profile&.avatar&.attached?
-      profile.avatar
+  private
+  def get_user_id(user)
+    # ユーザーインスタンスである場合
+    if user.is_a?(User)
+      user.id
     else
-      'default-avatar.png'
+      user
     end
   end
 end

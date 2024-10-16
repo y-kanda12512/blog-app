@@ -33,6 +33,8 @@ gem 'devise'
 gem 'aws-sdk-s3', require: false
 gem 'image_processing', '~> 1.2'
 gem 'net-protocol', '~> 0.2.2'
+gem 'active_decorator'
+gem 'draper'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
