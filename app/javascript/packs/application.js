@@ -19,7 +19,7 @@ require("channels");
 // const imagePath = (name) => images(name, true)
 
 // app/javascript/packs/application.js
-console.log("Webpacker is working!");
 
 require("trix");
 require("@rails/actiontext");
+
