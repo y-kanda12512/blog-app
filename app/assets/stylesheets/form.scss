@@ -21,4 +21,8 @@ trix-editor {
   resize: vertical;
   border: 1px solid #ebebeb;
   background-color: #fff;
+
+  &.sm {
+    min-height: 160px;
+  }
 }

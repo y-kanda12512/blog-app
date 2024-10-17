@@ -16,6 +16,7 @@ module.exports = function (api) {
         {
           targets: {
             node: "current",
+            browsers: [">0.25%", "not dead"],
           },
         },
       ],

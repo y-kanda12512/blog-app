@@ -7,9 +7,9 @@ Rails.application.routes.draw do
 
   # resources :articles,only:[:index, :show, :new, :create, :edit, :update, :destroy]
   resources :articles do
-    resources :comments,only: [:new, :create]
+    resources :comments,only: [:index, :new, :create]
 
-    resource :like, only: [:create, :destroy]
+    resource :like, only: [:show, :create, :destroy]
   end
 
   resources :accounts, only: [:show] do

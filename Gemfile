@@ -34,6 +34,7 @@ gem 'aws-sdk-s3', require: false
 gem 'image_processing', '~> 1.2'
 gem 'net-protocol', '~> 0.2.2'
 gem 'active_decorator'
+gem 'active_model_serializers'
 gem 'draper'
 
 # Reduces boot times through caching; required in config/boot.rb
