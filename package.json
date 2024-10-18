@@ -12,7 +12,7 @@
     "jquery": "^3.7.1",
     "rails-ujs": "^5.2.8-1",
     "resolve-from": "^5.0.0",
-    "trix": "^2.0.0",
+    "trix": "^2.1.7",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
@@ -38,7 +38,7 @@
     "heroku-postbuild": "bundle install --without development test && RAILS_ENV=production bundle exec rails webpacker:compile"
   },
   "engines": {
-    "node": "20.x",
+    "node": "22.9.0",
     "npm": "10.x"
   }
 }
