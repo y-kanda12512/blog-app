@@ -14,7 +14,7 @@ module Blogapp3
 
     if Rails.env.development? || Rails.env.test?
       Bundler.require(*Rails.groups)
-      Dotenv::Railtie.load
+      Dotenv::Rails.load
     end
 
     # Settings in config/environments/* take precedence over those specified here.
