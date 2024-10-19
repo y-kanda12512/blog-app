@@ -73,4 +73,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # gem "actiontext", "~> 6.0"
-gem 'actiontext', '7.2.1'
+gem 'actiontext'
