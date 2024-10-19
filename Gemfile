@@ -37,6 +37,7 @@ gem 'net-protocol', '~> 0.2.2'
 gem 'active_decorator'
 gem 'active_model_serializers'
 gem 'draper'
+gem 'sidekiq'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
