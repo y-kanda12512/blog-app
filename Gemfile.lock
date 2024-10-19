@@ -402,7 +402,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  actiontext (= 7.2.1)
+  actiontext
   active_decorator
   active_model_serializers
   annotate
