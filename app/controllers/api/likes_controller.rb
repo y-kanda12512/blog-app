@@ -1,4 +1,4 @@
-class LikesController < ApplicationController
+class Api::LikesController < Api::ApplicationController
 
     def show
         article = Article.find(params[:article_id])
