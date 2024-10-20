@@ -1,6 +1,4 @@
-class TimelinesController < ApplicationController
-    before_action :authenticate_user!
-
+class Apps::TimelinesController < Apps::ApplicationController
     def show
         # ユーザーのIDを配列で取得できる
        user_ids = current_user.followings.pluck(:id)
